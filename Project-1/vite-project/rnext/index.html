@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brillance - Effortless Custom Contract Billing</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/services/logo.svg"
+    />
+
+    <meta
+      name="description"
+      content="Streamline your billing process with seamless automation for every custom contract, tailored by Brillance."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+        --font-inter:
+          "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        --font-instrument-serif: "Instrument Serif", ui-serif, serif;
+      }
+
+      * {
+        @apply border-[rgba(55,50,47,0.08)] outline-[rgba(55,50,47,0.50)];
+      }
+
+      body {
+        @apply bg-[#F7F5F3] text-[#37322F] antialiased;
+        font-family: var(--font-inter);
+      }
+
+      .font-serif {
+        font-family: var(--font-instrument-serif);
+      }
+
+      .text-balance {
+        text-wrap: balance;
+      }
+
+      .text-pretty {
+        text-wrap: pretty;
+      }
+
+      .mix-blend-multiply {
+        mix-blend-mode: multiply;
+      }
+
+      .backdrop-blur-custom {
+        backdrop-filter: blur(8.25px);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div
+      class="w-full min-h-screen relative bg-[#F7F5F3] overflow-x-hidden flex flex-col justify-start items-center"
+    >
+      <div class="relative flex flex-col justify-start items-center w-full">
+        <!-- Main container with proper margins -->
+        <div
+          class="w-full max-w-none px-4 sm:px-6 md:px-8 lg:px-0 lg:max-w-[1060px] lg:w-[1060px] relative flex flex-col justify-start items-start min-h-screen"
+        >
+          <!-- Left vertical line -->
+          <div
+            class="w-[1px] h-full absolute left-4 sm:left-6 md:left-8 lg:left-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0"
+          ></div>
+
+          <!-- Right vertical line -->
+          <div
+            class="w-[1px] h-full absolute right-4 sm:right-6 md:right-8 lg:right-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0"
+          ></div>
+
+          <div
+            class="self-stretch pt-[9px] overflow-hidden border-b border-[rgba(55,50,47,0.06)] flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-[66px] relative z-10"
+          >
+            <!-- Navigation -->
+            <div
+              class="w-full h-12 sm:h-14 md:h-16 lg:h-[84px] absolute left-0 top-0 flex justify-center items-center z-20 px-6 sm:px-8 md:px-12 lg:px-0"
+            >
+              <div
+                class="w-full h-0 absolute left-0 top-6 sm:top-7 md:top-8 lg:top-[42px] border-t border-[rgba(55,50,47,0.12)] shadow-[0px_1px_0px_white]"
+              ></div>
+
+              <div
+                class="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] md:max-w-[calc(100%-64px)] lg:max-w-[700px] lg:w-[700px] h-10 sm:h-11 md:h-12 py-1.5 sm:py-2 px-3 sm:px-4 md:px-4 pr-2 sm:pr-3 bg-[#F7F5F3] backdrop-blur-sm shadow-[0px_0px_0px_2px_white] overflow-hidden rounded-[50px] flex justify-between items-center relative z-30"
+              >
+                <div class="flex justify-center items-center">
+                  <div class="flex justify-start items-center">
+                    <div
+                      class="flex flex-col justify-center text-[#2F3037] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-5 cursor-pointer"
+                    >
+                      Brillance
+                    </div>
+                  </div>
+                  <div
+                    class="pl-3 sm:pl-4 md:pl-5 lg:pl-5 flex justify-start items-start hidden sm:flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-4"
+                  >
+                    <div class="flex justify-start items-center">
+                      <div
+                        class="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] cursor-pointer"
+                      >
+                        Products
+                      </div>
+                    </div>
+                    <div class="flex justify-start items-center">
+                      <div
+                        class="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] cursor-pointer"
+                      >
+                        Pricing
+                      </div>
+                    </div>
+                    <div class="flex justify-start items-center">
+                      <div
+                        class="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] cursor-pointer"
+                      >
+                        Docs
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="h-6 sm:h-7 md:h-8 flex justify-start items-start gap-2 sm:gap-3"
+                >
+                  <div
+                    class="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full flex justify-center items-center cursor-pointer"
+                  >
+                    <div
+                      class="flex flex-col justify-center text-[#37322F] text-xs md:text-[13px] font-medium leading-5"
+                    >
+                      Log in
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Section  -->
+            <div
+              class="pt-16 sm:pt-20 md:pt-24 lg:pt-[216px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0"
+            >
+              <div
+                class="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6"
+              >
+                <div
+                  class="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8"
+                >
+                  <!-- Main Heading -->
+                  <div
+                    class="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-[#37322F] text-[24px] xs:text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 px-2 sm:px-4 md:px-0 font-serif"
+                  >
+                    Effortless custom contract<br />
+                    billing by Brillance
+                  </div>
+                  <!-- Subheading -->
+                  <div
+                    class="w-full max-w-[506.08px] lg:w-[506.08px] text-center flex justify-center flex-col text-[rgba(55,50,47,0.80)] sm:text-lg md:text-xl leading-[1.4] sm:leading-[1.45] md:leading-[1.5] lg:leading-7 px-2 sm:px-4 md:px-0 lg:text-lg font-medium text-sm"
+                  >
+                    Streamline your billing process with seamless automation<br
+                      class="hidden sm:block"
+                    />
+                    for every custom contract, tailored by Brillance.
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Button -->
+              <div
+                class="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12"
+              >
+                <div
+                  class="backdrop-blur-[8.25px] flex justify-start items-center gap-4"
+                >
+                  <div
+                    class="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-[#37322F] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] overflow-hidden rounded-full flex justify-center items-center"
+                  >
+                    <div
+                      class="w-20 sm:w-24 md:w-28 lg:w-44 h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0)] to-[rgba(0,0,0,0.10)] mix-blend-multiply"
+                    ></div>
+                    <div
+                      class="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-medium leading-5"
+                    >
+                      Start for free
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Background Pattern -->
+              <div
+                class="absolute top-[232px] sm:top-[248px] md:top-[264px] lg:top-[320px] left-1/2 transform -translate-x-1/2 z-0 pointer-events-none"
+              >
+                <svg
+                  class="w-[936px] sm:w-[1404px] md:w-[2106px] lg:w-[2808px] h-auto opacity-30 sm:opacity-40 md:opacity-50 mix-blend-multiply"
+                  style="
+                    filter: hue-rotate(15deg) saturate(0.7) brightness(1.2);
+                  "
+                  viewBox="0 0 2808 1200"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <rect width="100%" height="100%" fill="none" />
+                </svg>
+              </div>
+
+              <div
+                class="self-stretch border-t border-[#E0DEDB] border-b border-[#E0DEDB] flex justify-center items-start mt-60"
+              >
+                <!-- Left Pattern -->
+                <div
+                  class="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden"
+                >
+                  <div
+                    class="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start"
+                  >
+                    <template id="pattern-template">
+                      <div
+                        class="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
+                      ></div>
+                    </template>
+                  </div>
+                </div>
+
+                <!-- Feature Cards -->
+                <div
+                  class="flex-1 px-0 sm:px-2 md:px-0 flex flex-col md:flex-row justify-center items-stretch gap-0"
+                >
+                  <!-- Card 1 -->
+                  <div
+                    class="w-full md:flex-1 self-stretch px-6 py-5 overflow-hidden flex flex-col justify-start items-start gap-2 cursor-pointer relative border-b md:border-b-0 border-l-0 border-r-0 md:border border-[#E0DEDB]/80"
+                  >
+                    <div
+                      class="self-stretch flex justify-center flex-col text-[#49423D] text-sm md:text-sm font-semibold leading-6 md:leading-6"
+                    >
+                      Plan your schedules
+                    </div>
+                    <div
+                      class="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] md:leading-[22px]"
+                    >
+                      Streamline customer subscriptions and billing with
+                      automated scheduling tools.
+                    </div>
+                    <!-- Added image for Plan your schedules card -->
+                    <img
+                      src="./assets/images/services/plan-your-schedules.jpeg"
+                      alt="Plan schedules dashboard"
+                      class="w-full h-40 object-cover rounded-md mt-3"
+                    />
+                  </div>
+                  <!-- Card 2 -->
+                  <div
+                    class="w-full md:flex-1 self-stretch px-6 py-5 overflow-hidden flex flex-col justify-start items-start gap-2 cursor-pointer relative border-b md:border-b-0 border-l-0 border-r-0 md:border border-[#E0DEDB]/80"
+                  >
+                    <div
+                      class="self-stretch flex justify-center flex-col text-[#49423D] text-sm md:text-sm font-semibold leading-6 md:leading-6"
+                    >
+                      Analytics & insights
+                    </div>
+                    <div
+                      class="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] md:leading-[22px]"
+                    >
+                      Transform your business data into actionable insights with
+                      real-time analytics.
+                    </div>
+                    <!-- Added analytics dashboard image -->
+                    <img
+                      src="./assets/images/services/analytics-dashboard-with-charts-graphs-and-data-vi.jpg"
+                      alt="Analytics dashboard"
+                      class="w-full h-40 object-cover rounded-md mt-3"
+                    />
+                  </div>
+                  <!-- Card 3 -->
+                  <div
+                    class="w-full md:flex-1 self-stretch px-6 py-5 overflow-hidden flex flex-col justify-start items-start gap-2 cursor-pointer relative last:border-b-0 border-b md:border-b-0 border-l-0 border-r-0 md:border border-[#E0DEDB]/80"
+                  >
+                    <div
+                      class="self-stretch flex justify-center flex-col text-[#49423D] text-sm md:text-sm font-semibold leading-6 md:leading-6"
+                    >
+                      Collaborate seamlessly
+                    </div>
+                    <div
+                      class="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] md:leading-[22px]"
+                    >
+                      Keep your team aligned with shared dashboards and
+                      collaborative workflows.
+                    </div>
+                    <!-- Added data visualization image -->
+                    <img
+                      src="./assets/images/services/data-visualization-dashboard-with-interactive-char.jpg"
+                      alt="Data visualization dashboard"
+                      class="w-full h-40 object-cover rounded-md mt-3"
+                    />
+                  </div>
+                </div>
+
+                <!-- Right Pattern -->
+                <div
+                  class="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden"
+                >
+                  <div
+                    class="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start"
+                  >
+                    <template id="pattern-template-2">
+                      <div
+                        class="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
+                      ></div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Proof Section with Testimonial -->
+              <div
+                class="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center"
+              >
+                <!-- Header -->
+                <div
+                  class="self-stretch px-4 sm:px-6 md:px-24 py-8 sm:py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6"
+                >
+                  <div
+                    class="w-full max-w-[586px] px-4 sm:px-6 py-4 sm:py-5 shadow-none overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4"
+                  >
+                    <!-- Badge -->
+                    <div
+                      class="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs"
+                    >
+                      <svg
+                        width="12"
+                        height="10"
+                        viewBox="0 0 12 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          x="1"
+                          y="3"
+                          width="4"
+                          height="6"
+                          stroke="#37322F"
+                          stroke-width="1"
+                          fill="none"
+                        />
+                        <rect
+                          x="7"
+                          y="1"
+                          width="4"
+                          height="8"
+                          stroke="#37322F"
+                          stroke-width="1"
+                          fill="none"
+                        />
+                        <rect x="2" y="4" width="1" height="1" fill="#37322F" />
+                        <rect
+                          x="3.5"
+                          y="4"
+                          width="1"
+                          height="1"
+                          fill="#37322F"
+                        />
+                        <rect
+                          x="2"
+                          y="5.5"
+                          width="1"
+                          height="1"
+                          fill="#37322F"
+                        />
+                        <rect
+                          x="3.5"
+                          y="5.5"
+                          width="1"
+                          height="1"
+                          fill="#37322F"
+                        />
+                        <rect x="8" y="2" width="1" height="1" fill="#37322F" />
+                        <rect
+                          x="9.5"
+                          y="2"
+                          width="1"
+                          height="1"
+                          fill="#37322F"
+                        />
+                        <rect
+                          x="8"
+                          y="3.5"
+                          width="1"
+                          height="1"
+                          fill="#37322F"
+                        />
+                        <rect
+                          x="9.5"
+                          y="3.5"
+                          width="1"
+                          height="1"
+                          fill="#37322F"
+                        />
+                        <rect x="8" y="5" width="1" height="1" fill="#37322F" />
+                        <rect
+                          x="9.5"
+                          y="5"
+                          width="1"
+                          height="1"
+                          fill="#37322F"
+                        />
+                      </svg>
+                      <div
+                        class="text-center flex justify-center flex-col text-[#37322F] text-xs font-medium leading-3"
+                      >
+                        Testimonials
+                      </div>
+                    </div>
+                    <div
+                      class="w-full max-w-[472.55px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] tracking-tight"
+                    >
+                      Confidence backed by results
+                    </div>
+                    <div
+                      class="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7"
+                    >
+                      Our customers achieve more each day<br
+                        class="hidden sm:block"
+                      />
+                      because their tools are simple, powerful, and clear.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Added testimonial content with first testimonial image -->
+                <div
+                  class="self-stretch px-2 overflow-hidden flex justify-start items-center bg-background border border-b border-l-0 border-r-0 border-t-0"
+                >
+                  <div
+                    class="flex-1 py-12 md:py-16 flex flex-col md:flex-row justify-center items-end gap-6"
+                  >
+                    <div
+                      class="self-stretch px-3 md:px-12 justify-center items-start gap-4 flex flex-col md:flex-row"
+                    >
+                      <!-- Testimonial Image -->
+                      <img
+                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%2011%2C%202025%2C%2011_35_19%20AM-z4zSRLsbOQDp7MJS1t8EXmGNB6Al9Z.png"
+                        alt="Jamie Marshall"
+                        class="w-48 h-50 rounded-lg object-cover"
+                      />
+
+                      <!-- Testimonial Content -->
+                      <div
+                        class="flex-1 px-6 py-6 shadow-[0px_0px_0px_0.75px_rgba(50,45,43,0.12)] overflow-hidden flex flex-col justify-start items-start gap-6"
+                      >
+                        <div
+                          class="self-stretch justify-start flex flex-col text-[#49423D] text-2xl md:text-[32px] font-medium leading-10 md:leading-[42px] h-auto tracking-tight"
+                        >
+                          "In just a few minutes, we transformed our data into
+                          actionable insights. The process was seamless and
+                          incredibly efficient!"
+                        </div>
+                        <div
+                          class="self-stretch flex flex-col justify-start items-start gap-1"
+                        >
+                          <div
+                            class="self-stretch justify-center flex flex-col text-[rgba(73,66,61,0.90)] text-lg font-medium leading-[26px]"
+                          >
+                            Jamie Marshall
+                          </div>
+                          <div
+                            class="self-stretch justify-center flex flex-col text-[rgba(73,66,61,0.70)] text-lg font-medium leading-[26px]"
+                          >
+                            Co-founder, Exponent
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Features Section -->
+              <div
+                class="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center"
+              >
+                <!-- Header -->
+                <div
+                  class="self-stretch px-4 sm:px-6 md:px-8 lg:px-0 lg:max-w-[1060px] lg:w-[1060px] py-8 sm:py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6"
+                >
+                  <div
+                    class="w-full max-w-[616px] lg:w-[616px] px-4 sm:px-6 py-4 sm:py-5 shadow-none overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4"
+                  >
+                    <!-- Badge -->
+                    <div
+                      class="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs"
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          x="1"
+                          y="1"
+                          width="4"
+                          height="4"
+                          stroke="#37322F"
+                          stroke-width="1"
+                          fill="none"
+                        />
+                        <rect
+                          x="7"
+                          y="1"
+                          width="4"
+                          height="4"
+                          stroke="#37322F"
+                          stroke-width="1"
+                          fill="none"
+                        />
+                        <rect
+                          x="1"
+                          y="7"
+                          width="4"
+                          height="4"
+                          stroke="#37322F"
+                          stroke-width="1"
+                          fill="none"
+                        />
+                        <rect
+                          x="7"
+                          y="7"
+                          width="4"
+                          height="4"
+                          stroke="#37322F"
+                          stroke-width="1"
+                          fill="none"
+                        />
+                      </svg>
+                      <div
+                        class="text-center flex justify-center flex-col text-[#37322F] text-xs font-medium leading-3"
+                      >
+                        Services
+                      </div>
+                    </div>
+                    <div
+                      class="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] tracking-tight"
+                    >
+                      Built for absolute clarity and focused work
+                    </div>
+                    <div
+                      class="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7"
+                    >
+                      Stay focused with tools that organize, connect<br />
+                      and turn information into confident decisions.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Features Content -->
+                <div class="self-stretch flex justify-center items-start">
+                  <!-- Left Pattern -->
+                  <div
+                    class="w-12 self-stretch relative overflow-hidden hidden md:block"
+                  >
+                    <div
+                      class="w-[162px] left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start"
+                    >
+                      <template id="pattern-template-3">
+                        <div
+                          class="self-stretch h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
+                        ></div>
+                      </template>
+                    </div>
+                  </div>
+
+                  <!-- Grid Content -->
+                  <div
+                    class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]"
+                  >
+                    <!-- Top Left -->
+                    <div
+                      class="border-b border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6"
+                    >
+                      <div class="flex flex-col gap-2">
+                        <h3
+                          class="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight"
+                        >
+                          Smart. Simple. Brilliant.
+                        </h3>
+                        <p
+                          class="text-[#605A57] text-sm md:text-base font-normal leading-relaxed"
+                        >
+                          Your data is beautifully organized so you see
+                          everything clearly without the clutter.
+                        </p>
+                      </div>
+                      <div
+                        class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden"
+                      >
+                        <img
+                          src="./assets/images/services/work-order.png"
+                          class="h-1/2 object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Top Right with Sync Avatars -->
+                    <div
+                      class="border-b border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6"
+                    >
+                      <div class="flex flex-col gap-2">
+                        <h3
+                          class="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight"
+                        >
+                          Your work, in sync
+                        </h3>
+                        <p
+                          class="text-[#605A57] text-sm md:text-base font-normal leading-relaxed"
+                        >
+                          Every update flows instantly across your team and
+                          keeps collaboration effortless and fast.
+                        </p>
+                      </div>
+                      <div
+                        class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden relative"
+                      >
+                        <img
+                          src="./assets/images/services/work-sync.png"
+                          class="h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Bottom Left -->
+                    <div
+                      class="border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6 bg-transparent"
+                    >
+                      <div class="flex flex-col gap-2">
+                        <h3
+                          class="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight"
+                        >
+                          Effortless integration
+                        </h3>
+                        <p
+                          class="text-[#605A57] text-sm md:text-base font-normal leading-relaxed"
+                        >
+                          All your favorite tools connect in one place and work
+                          together seamlessly by design.
+                        </p>
+                      </div>
+                      <div
+                        class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden relative"
+                      >
+                        <img
+                          src="./assets/images/services/integration.png"
+                          class="h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Bottom Right -->
+                    <div
+                      class="p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6"
+                    >
+                      <div class="flex flex-col gap-2">
+                        <h3
+                          class="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight"
+                        >
+                          Numbers that speak
+                        </h3>
+                        <p
+                          class="text-[#605A57] text-sm md:text-base font-normal leading-relaxed"
+                        >
+                          Track growth with precision and turn raw data into
+                          confident decisions you can trust.
+                        </p>
+                      </div>
+                      <div
+                        class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden relative"
+                      >
+                        <img
+                          src="./assets/images/services/speak.png"
+                          class="h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right Pattern -->
+                  <div
+                    class="w-12 self-stretch relative overflow-hidden hidden md:block"
+                  >
+                    <div
+                      class="w-[162px] left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start"
+                    >
+                      <template id="pattern-template-4">
+                        <div
+                          class="self-stretch h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
+                        ></div>
+                      </template>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pricing Section -->
+              <div
+                class="w-full flex flex-col justify-center items-center gap-2 border-b border-[rgba(55,50,47,0.12)]"
+              >
+                <!-- Pricing Header -->
+                <div
+                  class="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6"
+                >
+                  <div
+                    class="w-full max-w-[586px] px-6 py-5 shadow-none overflow-hidden rounded-lg flex flex-col justify-start items-center gap-4"
+                  >
+                    <div
+                      class="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs"
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 1V11M8.5 3H4.75C4.28587 3 3.84075 3.18437 3.51256 3.51256C3.18437 3.84075 3 4.28587 3 4.75C3 5.21413 3.18437 5.65925 3.51256 5.98744C3.84075 6.31563 4.28587 6.5 4.75 6.5H7.25C7.71413 6.5 8.15925 6.68437 8.48744 7.01256C8.81563 7.34075 9 7.78587 9 8.25C9 8.71413 8.81563 9.15925 8.48744 9.48744C8.15925 9.81563 7.71413 10 7.25 10H3.5"
+                          stroke="#37322F"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <div
+                        class="text-center flex justify-center flex-col text-[#37322F] text-xs font-medium leading-3"
+                      >
+                        Plans & Pricing
+                      </div>
+                    </div>
+                    <div
+                      class="self-stretch text-center flex justify-center flex-col text-[#49423D] text-3xl md:text-5xl font-semibold leading-tight md:leading-[60px] tracking-tight"
+                    >
+                      Choose the perfect plan for your business
+                    </div>
+                    <div
+                      class="self-stretch text-center text-[#605A57] text-base font-normal leading-7"
+                    >
+                      Scale your operations with flexible pricing that grows
+                      with your team.<br />
+                      Start free, upgrade when you're ready.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer Section -->
+              <div
+                class="w-full pt-10 flex flex-col justify-start items-start border-t border-[rgba(55,50,47,0.12)]"
+              >
+                <!-- Main Footer Content -->
+                <div
+                  class="self-stretch h-auto flex flex-col md:flex-row justify-between items-stretch pr-0 pb-8 pt-0"
+                >
+                  <!-- Brand Section -->
+                  <div
+                    class="h-auto p-4 md:p-8 flex flex-col justify-start items-start gap-8"
+                  >
+                    <div
+                      class="self-stretch flex justify-start items-center gap-3"
+                    >
+                      <div
+                        class="text-center text-[#49423D] text-xl font-semibold leading-4"
+                      >
+                        Brillance
+                      </div>
+                    </div>
+                    <div
+                      class="text-[rgba(73,66,61,0.90)] text-sm font-medium leading-[18px]"
+                    >
+                      Coding made effortless
+                    </div>
+                    <!-- Social Icons -->
+                    <div class="flex justify-start items-start gap-4">
+                      <!-- Twitter -->
+                      <div class="w-6 h-6 relative overflow-hidden">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                            fill="#49423D"
+                          />
+                        </svg>
+                      </div>
+                      <!-- LinkedIn -->
+                      <div class="w-6 h-6 relative overflow-hidden">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
+                            fill="#49423D"
+                          />
+                        </svg>
+                      </div>
+                      <!-- GitHub -->
+                      <div class="w-6 h-6 relative overflow-hidden">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.300 24 12c0-6.627-5.374-12-12-12z"
+                            fill="#49423D"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Navigation Links -->
+                  <div
+                    class="self-stretch p-4 md:p-8 flex flex-col sm:flex-row flex-wrap justify-start sm:justify-between items-start gap-6 md:gap-8"
+                  >
+                    <!-- Product Column -->
+                    <div
+                      class="flex flex-col justify-start items-start gap-3 flex-1 min-w-[120px]"
+                    >
+                      <div
+                        class="self-stretch text-[rgba(73,66,61,0.50)] text-sm font-medium leading-5"
+                      >
+                        Product
+                      </div>
+                      <div class="flex flex-col justify-end items-start gap-2">
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Features
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Pricing
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Integrations
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Real-time Previews
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Multi-Agent Coding
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Company Column -->
+                    <div
+                      class="flex flex-col justify-start items-start gap-3 flex-1 min-w-[120px]"
+                    >
+                      <div
+                        class="text-[rgba(73,66,61,0.50)] text-sm font-medium leading-5"
+                      >
+                        Company
+                      </div>
+                      <div
+                        class="flex flex-col justify-center items-start gap-2"
+                      >
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          About us
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Our team
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Careers
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Brand
+                        </div>
+                        <div
+                          class="text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Contact
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Resources Column -->
+                    <div
+                      class="flex flex-col justify-start items-start gap-3 flex-1 min-w-[120px]"
+                    >
+                      <div
+                        class="text-[rgba(73,66,61,0.50)] text-sm font-medium leading-5"
+                      >
+                        Resources
+                      </div>
+                      <div
+                        class="flex flex-col justify-center items-center gap-2"
+                      >
+                        <div
+                          class="self-stretch text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Terms of use
+                        </div>
+                        <div
+                          class="self-stretch text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          API Reference
+                        </div>
+                        <div
+                          class="self-stretch text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Documentation
+                        </div>
+                        <div
+                          class="self-stretch text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Community
+                        </div>
+                        <div
+                          class="self-stretch text-[#49423D] text-sm font-normal leading-5 cursor-pointer hover:text-[#37322F] transition-colors"
+                        >
+                          Support
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Pattern -->
+                <div
+                  class="self-stretch h-12 relative overflow-hidden border-t border-b border-[rgba(55,50,47,0.12)]"
+                >
+                  <div class="absolute inset-0 w-full h-full overflow-hidden">
+                    <div class="w-full h-full relative">
+                      <!-- Decorative pattern lines -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

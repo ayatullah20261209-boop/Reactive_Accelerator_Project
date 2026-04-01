@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Plan your schedules",
+    "disc": "Streamline customer subscriptions and billing with automated scheduling tools.",
+    "pic": "plan-your-schedules.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Analytics & insights",
+    "disc": "Transform your business data into actionable insights with real-time analytics.",
+    "pic": "analytics-dashboard-with-charts-graphs-and-data-vi.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Collaborate seamlessly",
+    "disc": "Keep your team aligned with shared dashboards and collaborative workflows.",
+    "pic": "data-visualization-dashboard-with-interactive-char.jpg"
+  }
+]

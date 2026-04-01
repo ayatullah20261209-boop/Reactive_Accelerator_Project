@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Smart. Simple. Brilliant.",
+    "disc": "Your data is beautifully organized so you see everything clearly without the clutter.",
+    "pic": "work-order.png"
+  },
+  {
+    "id": 2,
+    "title": "Your work, in sync",
+    "disc": "Every update flows instantly across your team and keeps collaboration effortless and fast.",
+    "pic": "work-sync.png"
+  },
+  {
+    "id": 3,
+    "title": "Effortless integration",
+    "disc": "All your favorite tools connect in one place and work together seamlessly by design.",
+    "pic": "integration.png"
+  },
+  {
+    "id": 4,
+    "title": "Numbers that speak",
+    "disc": "Track growth with precision and turn raw data into confident decisions you can trust.",
+    "pic": "speak.png"
+  }
+]
